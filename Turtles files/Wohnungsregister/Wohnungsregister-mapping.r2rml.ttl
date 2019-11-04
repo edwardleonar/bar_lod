@@ -1,0 +1,325 @@
+PREFIX rr: <http://www.w3.org/ns/r2rml#>
+PREFIX bot: <https://w3id.org/bot#>
+PREFIX brick: <https://brickschema.org/schema/1.1.0/Brick#>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX ex: <https://example.org/>
+PREFIX gn: <http://www.geonames.org/ontology#>
+PREFIX gont: <https://gont.ch/>
+PREFIX purl: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <https://schema.org/>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
+PREFIX wgs84_pos: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<#buildings_mapping>
+	rr:logicalTable [ rr:tableName "Table_GEB.csv" ];
+	
+	rr:subjectMap [
+		rr:template "http://classifications.data.admin.ch/building/{EGID}";
+		rr:class bot:Building ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate purl:identifier ;
+		rr:objectMap [
+			rr:column "EGID" ;
+			rr:datatype xsd:int ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate gn:locatedIn ;
+		rr:objectMap [
+			rr:template "http://classifications.data.admin.ch/municipality/{GDENR}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate gn:locatedIn ;
+		rr:objectMap [
+			rr:template "http://classifications.data.admin.ch/canton/{GDEKT}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate wgs84_pos:lat ;
+		rr:objectMap [
+			rr:column "GKODE" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate wgs84_pos:long ;
+		rr:objectMap [
+			rr:column "GKODN" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:category ;
+		rr:objectMap [
+			rr:template "http://classifications.data.admin.ch/building/codes/{GKAT}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:class ;
+		rr:objectMap [
+			rr:template "http://classifications.data.admin.ch/building/codes/{GKLAS}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:buildingStatus ;
+		rr:objectMap [
+			rr:template "http://classifications.data.admin.ch/building/codes/{GSTAT}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:buildingPeriod ;
+		rr:objectMap [
+			rr:template "http://classifications.data.admin.ch/building/codes/{GBAUP}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate brick:isMeasuredBy ;
+		rr:objectMap [
+			rr:column "GKSCE" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate dbo:yearOfConstruction ;
+		rr:objectMap [
+			rr:column "GBAUJ" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate dbo:areaTotal ;
+		rr:objectMap [
+			rr:column "GAREA" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate purl:modified ;
+		rr:objectMap [
+			rr:column "UPDATE_DATE" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate dbo:releaseDate ;
+		rr:objectMap [
+			rr:column "EXPORT_DATE" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate bot:hasStorey ;
+		rr:objectMap [
+			rr:column "GASTW" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate bot:hasSpace ;
+		rr:objectMap [
+			rr:column "GANZWHG" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate bot:adjacentZone ;
+		rr:objectMap [
+			rr:column "GAZZI" ;
+		];
+	]
+.
+<#labels_mapping>
+	rr:logicalTable [ rr:tableName "labels_extracted.csv" ];
+	
+	rr:subjectMap [
+		rr:template "http://classifications.data.admin.ch/building/codes/{Code}";
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate purl:identifier ;
+		rr:objectMap [
+			rr:column "Code" ;
+			rr:datatype xsd:int ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "Label_DE" ;
+			rr:language "de" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "Label_FR" ;
+			rr:language "fr" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "Label_IT" ;
+			rr:language "it" ;
+		];
+	]
+.
+<#wohnungen_mapping>
+	rr:logicalTable [ rr:tableName "Table_WHG.csv" ];
+	
+	rr:subjectMap [
+		rr:template "http://classifications.data.admin.ch/building/apartments/{EWID}";
+		rr:class bot:Space ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate purl:identifier ;
+		rr:objectMap [
+			rr:column "EWID" ;
+			rr:datatype xsd:int ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate bot:hasBuilding ;
+		rr:objectMap [
+			rr:template "http://classifications.data.admin.ch/building/{EGID}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate schema:name ;
+		rr:objectMap [
+			rr:column "WHGNR" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate bot:hasStorey ;
+		rr:objectMap [
+			rr:column "WSTWK" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate schema:comment ;
+		rr:objectMap [
+			rr:column "WBEZ" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate schema:comment ;
+		rr:objectMap [
+			rr:column "WEINR" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:apartmentStatus ;
+		rr:objectMap [
+			rr:template "http://classifications.data.admin.ch/building/codes/{WSTAT}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate purl:modified ;
+		rr:objectMap [
+			rr:column "UPDATE_DATE" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate dbo:releaseDate ;
+		rr:objectMap [
+			rr:column "EXPORT_DATE" ;
+		];
+	]
+.
+<#streets_mapping>
+	rr:logicalTable [ rr:tableName "Table_EIN_codes.csv" ];
+	
+	rr:subjectMap [
+		rr:template "http://classifications.data.admin.ch/building/address/{EGID}";
+		rr:class vcard:Address ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate purl:identifier ;
+		rr:objectMap [
+			rr:column "EGID" ;
+			rr:datatype xsd:int ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate gont:id ;
+		rr:objectMap [
+			rr:column "ESID" ;
+			rr:datatype xsd:int ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate schema:name ;
+		rr:objectMap [
+			rr:column "STRNAME" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:houseNumber ;
+		rr:objectMap [
+			rr:column "DEINR" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate schema:language ;
+		rr:objectMap [
+			rr:column "STRSP" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate wgs84_pos:lat ;
+		rr:objectMap [
+			rr:column "DKODE" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate wgs84_pos:long ;
+		rr:objectMap [
+			rr:column "DKODN" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate purl:modified ;
+		rr:objectMap [
+			rr:column "UPDATE_DATE" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate dbo:releaseDate ;
+		rr:objectMap [
+			rr:column "EXPORT_DATE" ;
+		];
+	]
+.
+<#property_land_mapping>
+	rr:logicalTable [ rr:tableName "Table_GST.csv" ];
+	
+	rr:subjectMap [
+		rr:template "http://classifications.data.admin.ch/building/space/{EGRID}";
+		rr:class bot:Site ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate purl:identifier ;
+		rr:objectMap [
+			rr:column "EGRID" ;
+			rr:datatype xsd:int ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate bot:containsZone ;
+		rr:objectMap [
+			rr:template "http://classifications.data.admin.ch/building/{EGID}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate purl:modified ;
+		rr:objectMap [
+			rr:column "UPDATE_DATE" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate dbo:releaseDate ;
+		rr:objectMap [
+			rr:column "EXPORT_DATE" ;
+		];
+	]
+.
