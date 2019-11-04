@@ -1,0 +1,63 @@
+﻿Code,Group_class,Label_DE,Label_FR,Label_IT
+901,GKSCE,"Amtliche Vermessung, DM.01","Mensuration officielle, MD.01","Misurazione ufficiale, DM.01"
+902,GKSCE,Aus amtlicher Vermessung hergeleitet,Produites à partir de la mensuration officielle,Derivazione dalla misurazione ufficiale
+903,GKSCE,Angabe Nachführungsgeometer,Indication du géomètre conservateur,Indicazione del geometra revisore
+904,GKSCE,Angabe Baugesuch,Indication de la demande de permis de construire,Indicazione domanda di costruzione
+905,GKSCE,Bundesamt für Statistik,Office fédéral de la statistique (OFS),Ufficio federale di statistica (UST)
+906,GKSCE,Datensatz GeoPost,Données de GeoPost,Dati GeoPost
+909,GKSCE,Andere Datenquelle,Autre source,Altra fonte di dati
+1010,GKAT,Provisorische Unterkunft,Habitation provisoire,Alloggio provvisorio
+1020,GKAT,Reine Wohngebäude,Bâtiments exclusivement à usage d’habitation,Edifici esclusivamente abitativi
+1021,GKAT,Einfamilienhaus,Maison individuelle,Casa unifamiliare
+1025,GKAT,Mehrfamilienhaus,Maison à plusieurs logements,Casa plurifamiliare
+1030,GKAT,Andere Wohngebäude,Bâtiment d’habitation à usage annexe,Casa con utilizzazione accessoria
+1040,GKAT,Gebäude mit teilweiser Wohnnutzung,Bâtiment partiellement à usage d’habitation,Edificio ad uso parzialmente abitativo
+1060,GKAT,Gebäude ohne Wohnnutzung,Bâtiment sans usage d’habitation,Edificio ad uso non abitativo
+1080,GKAT,Sonderbau,Construction particulière,Costruzione speciale
+1110,GKLAS,Gebäude mit einer Wohnung,Maisons individuelles,Edifici ad una abitazione
+1121,GKLAS,Gebäude mit zwei Wohnungen,Maisons à deux logements,Edifici a due abitazioni
+1122,GKLAS,Gebäude mit drei oder mehr Wohnungen,Immeubles à trois logements et plus,Edifici a tre e più abitazioni
+1130,GKLAS,Wohngebäude für Gemeinschaften,Habitat communautaire,Residenze per collettività
+1211,GKLAS,Hotelgebäude,Hôtels,Edifici alberghieri
+1212,GKLAS,Andere Gebäude für kurzfristige Beherbergung,Autres bâtiments d’hébergement de tourisme,Altri edifici per alloggio di breve durata
+1220,GKLAS,Bürogebäude,Immeubles de bureaux,Fabbricati per uffici
+1230,GKLAS,Gross- und Einzelhandelsgebäude,Bâtiments commerciaux,Fabbricati per il commercio all'ingrosso e al dettaglio
+1241,GKLAS,"Gebäude des Nachrichtenwesens, Bahnhöfe, Abfertigungsgebäude und zugehörige
+Gebäude","Gares, aérogares, centraux téléphoniques","Fabbricati utilizzati per le comunicazioni, stazioni, terminal e fabbricati annessi"
+1242,GKLAS,Garagengebäude,Garages,Fabbricati per garage
+1251,GKLAS,Industriegebäude,Bâtiments industriels,Fabbricati industriali
+1252,GKLAS,"Behälter, Silos und Lagergebäude","Réservoirs, silos et entrepôts","Serbatoi, sili e depositi"
+1261,GKLAS,Gebäude für Kultur- und Freizeitzwecke,Bâtiments à usage récréatif ou culturel,Edifici destinati ad attività ricreative
+1262,GKLAS,Museen und Bibliotheken,Musées et bibliothèques,Musei e biblioteche
+1263,GKLAS,"Schul- und Hochschulgebäude, Forschungseinrichtungen",Bâtiments pour l’enseignement et la recherche,"Edifici scolastici, universitari ed edifici di ricerca"
+1264,GKLAS,Krankenhäuser und Facheinrichtungen des Gesundheitswesens,Hôpitaux et établissements de santé,Edifici per fini ospedalieri e di assistenza sociale
+1265,GKLAS,Sporthallen,Salles de sport,Sale sportive
+1271,GKLAS,Landwirtschaftliche Betriebsgebäude,Bâtiment d’exploitation agricole,Fabbricati rurali non residenziali
+1272,GKLAS,Kirchen und sonstige Kultgebäude,Édifices cultuels et religieux,Edifici utilizzati come luoghi di culto e per attività religiose
+1273,GKLAS,Denkmäler oder unter Denkmalschutz stehende Bauwerke,Monuments historiques ou classés,Monumenti storici o protetti
+1274,GKLAS,"Sonstige Hochbauten, anderweitig nicht genannt",Autres bâtiments non classés ailleurs,"Altri edifici, n.c.a."
+1001,GSTAT,Projektiert,En projet,In progetto
+1003,GSTAT,Im Bau,En construction,In costruzione
+1004,GSTAT,Bestehend,Existant,Esistente
+1007,GSTAT,Abgebrochen,Démoli,Demolito
+8011,GBAUP,Periode vor 1919,Période avant 1919,Periodico prima del 1919
+8012,GBAUP,Periode von 1919 bis 1945,Période de 1919 à 1945,Periodico dal 1919 al 1945
+8013,GBAUP,Periode von 1946 bis 1960,Période de 1946 à 1960,Periodico dal 1946 al 1960
+8014,GBAUP,Periode von 1961 bis 1970,Période de 1961 à 1970,Periodico dal 1961 al 1970
+8015,GBAUP,Periode von 1971 bis 1980,Période de 1971 à 1980,Periodico dal 1971 al 1980
+8016,GBAUP,Periode von 1981 bis 1985,Période de 1981 à 1985,Periodico dal 1981 al 1985
+8017,GBAUP,Periode von 1986 bis 1990,Période de 1986 à 1990,Periodico dal 1986 al 1990
+8018,GBAUP,Periode von 1991 bis 1995,Période de 1991 à 1995,Periodico dal 1991 al 1995
+8019,GBAUP,Periode von 1996 bis 2000,Période de 1996 à 2000,Periodico dal 1996 al 2000
+8020,GBAUP,Periode von 2001 bis 2005,Période de 2001 à 2005,Periodico dal 2001 al 2005
+8021,GBAUP,Periode von 2006 bis 2010,Période de 2006 à 2010,Periodico dal 2006 al 2010
+8022,GBAUP,Periode von 2011 bis 2015,Période de 2011 à 2015,Periodico dal 2011 al 2015
+8023,GBAUP,Periode nach 2015,Période après 2015,Periodico dopo il 2015
+3001,WSTAT,Projektiert,En projet,In progetto
+3003,WSTAT,Im Bau,En construction,In costruzione
+3004,WSTAT,Bestehend,Existant,Esistente
+3007,WSTAT,Aufgehoben,Démoli,Demolito
+9901,STRSP,Deutsch,Allemand,Tedesco
+9902,STRSP,Rätoromanisch,Romanche,Romancio
+9903,STRSP,Französisch,Français,Francese
+9904,STRSP,Italienisch,Italien,Italiano
