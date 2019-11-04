@@ -1,0 +1,302 @@
+PREFIX rr: <http://www.w3.org/ns/r2rml#>
+PREFIX purl: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<#Berufsabteilungen_map>
+	rr:logicalTable [ rr:tableName "labels_data.csv" ];
+	
+	rr:subjectMap [
+		rr:template "http://http://classifications.data.admin.ch/berufsabteilungen_int/{Berufsabteilungen}";
+		rr:class skos:Concept ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "name_occup_de" ;
+			rr:language "de" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "name_occup_fr" ;
+			rr:language "fr" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "name_occup_it" ;
+			rr:language "it" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "name_occup_en" ;
+			rr:language "en" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate purl:identifier ;
+		rr:objectMap [
+			rr:column "Berufsabteilungen" ;
+			rr:datatype xsd:int ;
+		];
+	]
+.
+<#Berufsklassen_map>
+	rr:logicalTable [ rr:tableName "labels_data.csv" ];
+	
+	rr:subjectMap [
+		rr:template "http://http://classifications.data.admin.ch/Berufsklassen_int/{Berufsklassen}";
+		rr:class skos:Concept ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "name_occup_de" ;
+			rr:language "de" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "name_occup_fr" ;
+			rr:language "fr" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "name_occup_it" ;
+			rr:language "it" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "name_occup_en" ;
+			rr:language "en" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate purl:identifier ;
+		rr:objectMap [
+			rr:column "Berufsklassen" ;
+			rr:datatype xsd:int ;
+		];
+	]
+.
+<#Berufsgruppen_map>
+	rr:logicalTable [ rr:tableName "labels_data.csv" ];
+	
+	rr:subjectMap [
+		rr:template "http://http://classifications.data.admin.ch/Berufsgruppen_int/{Berufsgruppen}";
+		rr:class skos:Concept ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "name_occup_de" ;
+			rr:language "de" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "name_occup_fr" ;
+			rr:language "fr" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "name_occup_it" ;
+			rr:language "it" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "name_occup_en" ;
+			rr:language "en" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate purl:identifier ;
+		rr:objectMap [
+			rr:column "Berufsgruppen" ;
+			rr:datatype xsd:int ;
+		];
+	]
+.
+<#Berufsarten_map>
+	rr:logicalTable [ rr:tableName "labels_data.csv" ];
+	
+	rr:subjectMap [
+		rr:template "http://http://classifications.data.admin.ch/Berufsarten_int/{Berufsarten}";
+		rr:class skos:Concept ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "name_occup_de" ;
+			rr:language "de" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "name_occup_fr" ;
+			rr:language "fr" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "name_occup_it" ;
+			rr:language "it" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label ;
+		rr:objectMap [
+			rr:column "name_occup_en" ;
+			rr:language "en" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate purl:identifier ;
+		rr:objectMap [
+			rr:column "Berufsarten" ;
+			rr:datatype xsd:int ;
+		];
+	]
+.
+<#Berufs_links_2>
+	rr:logicalTable [ rr:tableName "data_occup_international.csv" ];
+	
+	rr:subjectMap [
+		rr:template "http://http://classifications.data.admin.ch/Berufsklassen_int/{class_2}";
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rdfs:subClassOf ;
+		rr:objectMap [
+			rr:template "http://http://classifications.data.admin.ch/berufsabteilungen_int/{class_1}" ;
+		];
+	]
+.
+<#Berufs_links_3>
+	rr:logicalTable [ rr:tableName "data_occup_international.csv" ];
+	
+	rr:subjectMap [
+		rr:template "http://http://classifications.data.admin.ch/Berufsgruppen_int/{class_3}";
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rdfs:subClassOf ;
+		rr:objectMap [
+			rr:template "http://http://classifications.data.admin.ch/berufsabteilungen_int/{class_1}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:subClassOf ;
+		rr:objectMap [
+			rr:template "http://http://classifications.data.admin.ch/Berufsklassen_int/{class_2}" ;
+		];
+	]
+.
+<#Berufs_links_4>
+	rr:logicalTable [ rr:tableName "data_occup_international.csv" ];
+	
+	rr:subjectMap [
+		rr:template "http://http://classifications.data.admin.ch/Berufsarten_int/{class_4}";
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate rdfs:subClassOf ;
+		rr:objectMap [
+			rr:template "http://http://classifications.data.admin.ch/berufsabteilungen_int/{class_1}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:subClassOf ;
+		rr:objectMap [
+			rr:template "http://http://classifications.data.admin.ch/Berufsklassen_int/{class_2}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:subClassOf ;
+		rr:objectMap [
+			rr:template "http://http://classifications.data.admin.ch/Berufsgruppen_int/{class_3}" ;
+		];
+	]
+.
+<#Berufs_links_2>
+	rr:logicalTable [ rr:tableName "data_occup_international.csv" ];
+	
+	rr:subjectMap [
+		rr:template "http://http://classifications.data.admin.ch/Berufsklassen_int/{class_2}";
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate skos:inScheme ;
+		rr:objectMap [
+			rr:template "http://http://classifications.data.admin.ch/berufsabteilungen_int/{class_1}" ;
+		];
+	]
+.
+<#Berufs_links_3>
+	rr:logicalTable [ rr:tableName "data_occup_international.csv" ];
+	
+	rr:subjectMap [
+		rr:template "http://http://classifications.data.admin.ch/Berufsgruppen_int/{class_3}";
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate skos:inScheme ;
+		rr:objectMap [
+			rr:template "http://http://classifications.data.admin.ch/berufsabteilungen_int/{class_1}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate skos:inScheme ;
+		rr:objectMap [
+			rr:template "http://http://classifications.data.admin.ch/Berufsklassen_int/{class_2}" ;
+		];
+	]
+.
+<#Berufs_links_4>
+	rr:logicalTable [ rr:tableName "data_occup_international.csv" ];
+	
+	rr:subjectMap [
+		rr:template "http://http://classifications.data.admin.ch/Berufsarten_int/{class_4}";
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate skos:inScheme ;
+		rr:objectMap [
+			rr:template "http://http://classifications.data.admin.ch/berufsabteilungen_int/{class_1}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate skos:inScheme ;
+		rr:objectMap [
+			rr:template "http://http://classifications.data.admin.ch/Berufsklassen_int/{class_2}" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate skos:inScheme ;
+		rr:objectMap [
+			rr:template "http://http://classifications.data.admin.ch/Berufsgruppen_int/{class_3}" ;
+		];
+	]
+.
