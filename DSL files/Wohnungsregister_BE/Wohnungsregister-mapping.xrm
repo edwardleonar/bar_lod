@@ -1,0 +1,107 @@
+// based on http://rml.io/spec.html#example-CSV
+
+map buildings_mapping from buildings_source {
+	subject template "http://classifications.data.admin.ch/building/{0}" with EGID;
+	
+	types
+		bot.Building;
+	
+	properties
+		purl.identifier from EGID with datatype xsd.int;
+		gn.locatedIn template "http://classifications.data.admin.ch/municipality/{0}" with GDENR;
+		gn.locatedIn template "http://classifications.data.admin.ch/canton/{0}" with GDEKT; //Necessary to add?... or inferred from previous property?
+			//Canton can change depending on the Municipality
+		//vcard.street-address link streets_mapping with EGID;
+		// Previous property shows an error because of the - symbol... Vocabularies.xrm also presents the same error.
+		
+		// Please check coordinate system. I'm not sure what scale has been used this time.
+		wgs84_pos.lat from GKODE;  
+		wgs84_pos.long from GKODN;
+		
+		//Building categories and Classes are identifiers, labels are separated
+		ex.category link labels_mapping with GKAT;
+		ex.class link labels_mapping with GKLAS;
+		ex.buildingStatus link labels_mapping with GSTAT;
+		ex.buildingPeriod link labels_mapping with GBAUP; //used ex. because other vocabs may have defined other building periods.
+		
+		brick.isMeasuredBy from GKSCE; // Using the schema Brick
+		dbo.yearOfConstruction from GBAUJ;
+		
+		// I couldn't find any properties for construction-area/-surface.
+		dbo.areaTotal from GAREA;
+		purl.modified from UPDATE_DATE;
+		dbo.releaseDate from EXPORT_DATE;
+		
+		// the following are right properties, but the input should be instances, and single numbers
+		// no better Vocabulary was found
+		bot.hasStorey from GASTW;
+		bot.hasSpace from GANZWHG;
+		bot.adjacentZone from GAZZI;		
+}
+
+
+// The following approach combines all identifiers and labels into 1 CSV file
+// As alternative, identifiers & labels can be split into independent files by group. However, this creates a lot of new extra tables.
+map labels_mapping from labels_source {
+	subject template "http://classifications.data.admin.ch/building/codes/{0}" with Code;
+	
+	properties
+		purl.identifier from Code with datatype xsd.int;
+		rdfs.label from Label_DE with language-tag de;
+		rdfs.label from Label_FR with language-tag fr;
+		rdfs.label from Label_IT with language-tag it;	
+}
+
+map wohnungen_mapping from wohnungen_source {
+	subject template "http://classifications.data.admin.ch/building/apartments/{0}" with EWID; 
+		
+	types
+		bot.Space
+	
+	properties
+		purl.identifier from EWID with datatype xsd.int;
+		bot.hasBuilding link buildings_mapping with EGID;
+		schema.name from WHGNR;
+		bot.hasStorey from WSTWK;
+		schema.comment from WBEZ;
+		schema.comment from WEINR; // 
+		ex.apartmentStatus link labels_mapping with WSTAT;
+		purl.modified from UPDATE_DATE;
+		dbo.releaseDate from EXPORT_DATE;
+}
+
+map streets_mapping from ein_codes_source {
+	subject template "http://classifications.data.admin.ch/building/address/{0}" with EGID; 
+		
+	types
+		vcard.Address
+	
+	properties
+		purl.identifier from EGID with datatype xsd.int;
+		gont.id from ESID with datatype xsd.int;
+		schema.name from STRNAME;
+		ex.houseNumber from DEINR;
+		schema.language from STRSP;
+		
+		// Please check coordinate system. I'm not sure what scale has been used this time.
+		wgs84_pos.lat from DKODE;  
+		wgs84_pos.long from DKODN;
+		
+		purl.modified from UPDATE_DATE;
+		dbo.releaseDate from EXPORT_DATE;
+}
+
+map property_land_mapping from property_land_source {
+	subject template "http://classifications.data.admin.ch/building/space/{0}" with EGRID; 
+		
+	types
+		bot.Site
+	
+	properties
+		purl.identifier from EGRID with datatype xsd.int;
+		bot.containsZone link buildings_mapping with EGID;
+		// There are a few properties like #OfParcels but I dind't consider them for mapping as a proper Vocabulary has to be found
+				
+		purl.modified from UPDATE_DATE;
+		dbo.releaseDate from EXPORT_DATE;
+}

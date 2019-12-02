@@ -1,0 +1,104 @@
+source-types {
+	csv referenceFormulation "ql:CSV"
+}
+
+logical-source buildings_source {
+	type csv
+	source "Table_GEB.csv"
+	
+	referenceables
+		EGID
+		GEBNR
+		GBEZ
+		GDEKT
+		GDENR
+		GDENAME
+		GKODE
+		GKODN
+		GKSCE
+		GKAT
+		GKLAS
+		GSTAT
+		GBAUJ
+		GBAUM
+		GBAUP
+		GABBJ
+		GAREA
+		GVOL
+		GVOLNORM
+		GVOLSCE
+		GASTW
+		GANZWHG
+		GAZZI
+		UPDATE_DATE
+		EXPORT_DATE
+}
+
+logical-source wohnungen_source {
+	type csv
+	source "Table_WHG.csv"
+	
+	referenceables
+		EGID
+		EDID
+		EWID
+		WHGNR
+		WEINR
+		WSTWK
+		WBEZ
+		WSTAT
+		UPDATE_DATE
+		EXPORT_DATE	
+}
+
+logical-source ein_codes_source {
+	type csv
+	source "Table_EIN_codes.csv"
+	
+	referenceables
+		EGID
+		EDID
+		EGAID
+		ESID
+		STRINDX
+		STRNAME
+		STRNAMK
+		DEINR
+		STRSP
+		STROFFIZIEL
+		PLZ4
+		PLZZ
+		PLZNAME
+		DOFFADR
+		DKODE
+		DKODN
+		UPDATE_DATE
+		EXPORT_DATE
+}
+
+logical-source labels_source {
+	type csv
+	source "labels_extracted.csv"
+	
+	referenceables
+		Code
+		Group_class
+		Label_DE
+		Label_FR
+		Label_IT
+}
+
+logical-source property_land_source {
+	type csv
+	source "Table_GST.csv"
+	
+	referenceables
+		EGID
+		EGRID
+		LGBKR
+		LPARZ
+		LPARZSX
+		LTYP
+		UPDATE_DATE
+		EXPORT_DATE
+}

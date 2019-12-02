@@ -1,0 +1,113 @@
+datatypes xsd {
+	prefix "xsd:" "http://www.w3.org/2001/XMLSchema#"
+	int
+}
+
+language-tags {
+	de en fr it
+}
+
+vocabulary bot {
+	prefix "bot:" "https://w3id.org/bot#"
+	// https://w3c-lbd-cg.github.io/bot/	
+	classes
+		Building
+		Space
+		Storey
+		Site
+				
+	properties
+		shortName
+		hasStorey
+		hasSpace
+		adjacentZone
+		hasBuilding
+		containsZone
+		
+}
+vocabulary wgs84_pos {
+	prefix "wgs84_pos:" "http://www.w3.org/2003/01/geo/wgs84_pos#"
+		
+	properties
+		lat
+		long
+}
+
+vocabulary schema {
+	prefix "schema:" "https://schema.org/"
+			
+	properties
+		name
+		isPartOf
+		comment
+		language
+}
+
+vocabulary purl{
+	prefix "purl:" "http://purl.org/dc/terms/"
+	
+	properties
+		identifier
+		modified
+}
+vocabulary gn{
+	prefix "gn:" "http://www.geonames.org/ontology#"
+	
+	properties
+		locatedIn	
+}
+
+vocabulary ex {
+	// New Vocabulary has to be discussed with BAR 
+	prefix "ex:" "https://example.org/"
+		
+	properties
+		category
+		class
+		buildingStatus
+		buildingPeriod
+		area
+		apartmentStatus
+		houseNumber // should be part of BAR vocabulary
+}
+
+vocabulary rdfs{
+	prefix "rdfs:" "http://www.w3.org/2000/01/rdf-schema#"
+	
+	properties
+		subClassOf
+		label
+}
+
+vocabulary brick{
+	prefix "brick:" "https://brickschema.org/schema/1.1.0/Brick#"
+	
+	properties
+		 isMeasuredBy
+}
+
+vocabulary dbo{
+	prefix "dbo:" "http://dbpedia.org/ontology/"
+	classes
+		Street
+		
+	properties
+		 yearOfConstruction
+		 areaTotal
+		 releaseDate
+}
+vocabulary vcard{
+	prefix "vcard:" "http://www.w3.org/2006/vcard/ns#"
+	
+	classes
+		Address		
+	properties
+		 //street-address //mistake with the - character
+}
+
+vocabulary gont{
+	prefix "gont:" "https://gont.ch/"
+			
+	properties
+		 id
+}
