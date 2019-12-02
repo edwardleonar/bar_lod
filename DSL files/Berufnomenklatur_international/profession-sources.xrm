@@ -1,0 +1,32 @@
+source-types {
+	csv referenceFormulation "ql:CSV"
+}
+
+logical-source profession_label_source {
+	type csv
+	source "labels_data.csv"
+	
+	referenceables
+		index
+		name_occup_de
+		Berufsabteilungen
+		Berufsklassen
+		Berufsgruppen
+		Berufsarten
+		name_occup_fr
+		name_occup_it
+		name_occup_en	
+}
+logical-source profession_source {
+	type csv
+	source "data_occup_international.csv"
+	
+	referenceables
+		index
+		name_occup_de
+		class_1
+		class_2
+		class_3
+		class_4
+
+}

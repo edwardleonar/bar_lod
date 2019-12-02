@@ -1,0 +1,114 @@
+// Labels
+map Berufsabteilungen_map from profession_label_source {
+	subject template "http://http://classifications.data.admin.ch/berufsabteilungen_int/{0}" with Berufsabteilungen;
+		
+	types
+		skos.Concept
+	
+	properties
+		rdfs.label from name_occup_de with language-tag de;
+		rdfs.label from name_occup_fr  with language-tag fr;
+		rdfs.label from name_occup_it with language-tag it;
+		rdfs.label from name_occup_en with language-tag en;
+		
+		purl.identifier from Berufsabteilungen with datatype xsd.int;	
+}
+
+map Berufsklassen_map from profession_label_source {
+	subject template "http://http://classifications.data.admin.ch/Berufsklassen_int/{0}" with Berufsklassen;
+		
+	types
+		skos.Concept
+	
+	properties
+		rdfs.label from name_occup_de with language-tag de;
+		rdfs.label from name_occup_fr with language-tag fr;
+		rdfs.label from name_occup_it with language-tag it;
+		rdfs.label from name_occup_en with language-tag en;
+		
+		purl.identifier from Berufsklassen with datatype xsd.int;
+		//skos.inScheme template "http://http://classifications.data.admin.ch/berufsabteilungen_int/{0}" with GDENR;
+}
+
+map Berufsgruppen_map from profession_label_source {
+	subject template "http://http://classifications.data.admin.ch/Berufsgruppen_int/{0}" with Berufsgruppen;
+		
+	types
+		skos.Concept
+	
+	properties
+		rdfs.label from name_occup_de with language-tag de;
+		rdfs.label from name_occup_fr with language-tag fr;
+		rdfs.label from name_occup_it with language-tag it;
+		rdfs.label from name_occup_en with language-tag en;
+		
+		purl.identifier from Berufsgruppen with datatype xsd.int
+}
+
+map Berufsarten_map from profession_label_source {
+	subject template "http://http://classifications.data.admin.ch/Berufsarten_int/{0}" with Berufsarten;
+		
+	types
+		skos.Concept
+	
+	properties
+		rdfs.label from name_occup_de with language-tag de;
+		rdfs.label from name_occup_fr with language-tag fr;
+		rdfs.label from name_occup_it with language-tag it;
+		rdfs.label from name_occup_en with language-tag en;
+		
+		purl.identifier from Berufsarten with datatype xsd.int
+}
+
+//
+// Linking Mapping
+map Berufs_links_2 from profession_source{
+	subject template "http://http://classifications.data.admin.ch/Berufsklassen_int/{0}" with class_2;
+	// is it necessary to repeat the previous link again?
+		
+	properties
+		rdfs.subClassOf link Berufsabteilungen_map with class_1;
+}
+
+map Berufs_links_3 from profession_source{
+	subject template "http://http://classifications.data.admin.ch/Berufsgruppen_int/{0}" with class_3;
+	
+	properties
+		rdfs.subClassOf link Berufsabteilungen_map with class_1;
+		rdfs.subClassOf link Berufsklassen_map with class_2;
+}
+
+map Berufs_links_4 from profession_source{
+	subject template "http://http://classifications.data.admin.ch/Berufsarten_int/{0}" with class_4;
+	
+	properties
+		rdfs.subClassOf link Berufsabteilungen_map with class_1;
+		rdfs.subClassOf link Berufsklassen_map with class_2;
+		rdfs.subClassOf link Berufsgruppen_map with class_3;
+}
+
+
+//Linking with Skos: Edward's test
+map Berufs_links_2 from profession_source{
+	subject template "http://http://classifications.data.admin.ch/Berufsklassen_int/{0}" with class_2;
+	// is it necessary to repeat the previous link again?
+		
+	properties
+		skos.inScheme link Berufsabteilungen_map with class_1;
+}
+map Berufs_links_3 from profession_source{
+	subject template "http://http://classifications.data.admin.ch/Berufsgruppen_int/{0}" with class_3;
+	
+	properties
+		skos.inScheme link Berufsabteilungen_map with class_1; //Necessary?
+		skos.inScheme link Berufsklassen_map with class_2;
+}
+
+map Berufs_links_4 from profession_source{
+	subject template "http://http://classifications.data.admin.ch/Berufsarten_int/{0}" with class_4;
+	
+	properties
+		skos.inScheme link Berufsabteilungen_map with class_1; //Necessary?
+		skos.inScheme link Berufsklassen_map with class_2; //Necessary?
+		skos.inScheme link Berufsgruppen_map with class_3;
+}

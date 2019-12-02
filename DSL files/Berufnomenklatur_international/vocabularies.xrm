@@ -1,0 +1,44 @@
+datatypes xsd {
+	prefix "xsd:" "http://www.w3.org/2001/XMLSchema#"
+	int
+}
+language-tags {
+	de en fr it
+}
+
+// vocabulary: classes and properties
+
+vocabulary schema {
+	prefix "schema:" "https://schema.org/"
+			
+	properties
+		name
+		numberOfEmployees
+		isPartOf
+		
+}
+vocabulary purl{
+	prefix "purl:" "http://purl.org/dc/terms/"
+	
+	properties
+		identifier
+}
+
+vocabulary rdfs{
+	prefix "rdfs:" "http://www.w3.org/2000/01/rdf-schema#"
+	
+	properties
+		subClassOf
+		label
+}
+
+vocabulary skos{
+	prefix "skos:" "http://www.w3.org/2004/02/skos/core#"
+	classes
+		Concept
+		ConceptScheme
+		
+	properties
+		broader
+		inScheme
+}
