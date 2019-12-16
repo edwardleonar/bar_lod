@@ -1,0 +1,89 @@
+PREFIX rr: <http://www.w3.org/ns/r2rml#>
+PREFIX rml: <http://semweb.mmlab.be/ns/rml#>
+PREFIX ql: <http://semweb.mmlab.be/ns/ql#>
+PREFIX ex: <https://example.org/>
+PREFIX gn: <http://www.geonames.org/ontology#>
+PREFIX gont: <https://gont.ch/>
+PREFIX purl: <http://purl.org/dc/terms/>
+PREFIX schema: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<#Agglomeration_mapping>
+	rml:logicalSource [
+		rml:source "agglomeration_list.csv" ;
+		rml:referenceFormulation ql:CSV
+	];
+	
+	rr:subjectMap [
+		rr:template "http://classifications.data.admin.ch/agglomeration/{identifier}";
+		rr:class ex:Agglomeration ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate purl:identifier ;
+		rr:objectMap [
+			rml:reference "identifier" ;
+			rr:datatype xsd:int ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate schema:name ;
+		rr:objectMap [
+			rml:reference "Agglo_name" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:totalNumberMunicipalities ;
+		rr:objectMap [
+			rml:reference "total_nr_gmd" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:numberMunicipalitiesCH ;
+		rr:objectMap [
+			rml:reference "nr_CH_gmd" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:numberOtherMunicipalities ;
+		rr:objectMap [
+			rml:reference "nr_non_CH_gmd" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate gn:population ;
+		rr:objectMap [
+			rml:reference "total_population_2012" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:cHPopulationSize ;
+		rr:objectMap [
+			rml:reference "population_CH" ;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicate ex:otherPopulationSize ;
+		rr:objectMap [
+			rml:reference "population_non_CH" ;
+		];
+	]
+.
+<#gemeinde_mapping>
+	rml:logicalSource [
+		rml:source "gemeinde_agglo_list.csv" ;
+		rml:referenceFormulation ql:CSV
+	];
+	
+	rr:subjectMap [
+		rr:template "http://classifications.data.admin.ch/municipality/{gmd_identifier}";
+		rr:class gont:Municipality ;
+	];
+	
+	rr:predicateObjectMap [
+		rr:predicate schema:isPartOf ;
+		rr:objectMap [
+			rr:template "http://classifications.data.admin.ch/agglomeration/{agglo_identifier}" ;
+		];
+	]
+.
