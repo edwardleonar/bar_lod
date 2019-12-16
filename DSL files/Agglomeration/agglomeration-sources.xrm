@@ -1,0 +1,33 @@
+source-types {
+	csv referenceFormulation "ql:CSV"
+}
+
+logical-source agglomeration_list_source {
+	type csv
+	source "agglomeration_list.csv"
+	
+	referenceables
+		identifier
+		Agglo_name
+		nr_CH_gmd
+		nr_non_CH_gmd
+		total_nr_gmd
+		population_CH
+		population_non_CH
+		total_population_2012
+}
+
+logical-source gmd_agglo_source {
+	type csv
+	source "gemeinde_agglo_list.csv"
+	
+	referenceables
+		gmd_identifier
+		gmd_name
+		Land
+		kanton
+		agglo_identifier
+		population_2012
+		
+}
+

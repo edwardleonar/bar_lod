@@ -1,0 +1,32 @@
+// based on http://rml.io/spec.html#example-CSV
+
+map Agglomeration_mapping from agglomeration_list_source {
+	subject template "http://classifications.data.admin.ch/agglomeration/{0}" with identifier;
+	
+	types
+		ex.Agglomeration;
+	
+	properties
+		purl.identifier from identifier with datatype xsd.int;
+		schema.name from Agglo_name;
+				
+		ex.totalNumberMunicipalities from total_nr_gmd;
+		ex.numberMunicipalitiesCH from nr_CH_gmd;
+		ex.numberOtherMunicipalities from nr_non_CH_gmd;
+		
+		gn.population from total_population_2012; 
+		ex.cHPopulationSize from population_CH;
+		ex.otherPopulationSize from population_non_CH;				
+}
+
+
+map gemeinde_mapping from gmd_agglo_source {
+	subject template "http://classifications.data.admin.ch/municipality/{0}" with gmd_identifier; 
+		
+	types
+		transit.Municipality
+	
+	properties
+		schema.isPartOf link Agglomeration_mapping with agglo_identifier;
+		
+}

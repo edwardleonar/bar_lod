@@ -1,0 +1,50 @@
+datatypes xsd {
+	prefix "xsd:" "http://www.w3.org/2001/XMLSchema#"
+	int
+}
+
+vocabulary transit {
+	prefix "gont:" "https://gont.ch/"
+		
+	classes
+		Municipality
+				
+	properties
+		shortName
+}
+
+vocabulary schema {
+	prefix "schema:" "https://schema.org/"
+			
+	properties
+		name
+		isPartOf
+}
+
+vocabulary purl{
+	prefix "purl:" "http://purl.org/dc/terms/"
+	
+	properties
+		identifier
+}
+vocabulary gn{
+	prefix "gn:" "http://www.geonames.org/ontology#"
+	
+	properties
+		population
+		countryCode
+}
+
+vocabulary ex {
+	prefix "ex:" "https://example.org/"
+		
+	classes
+		Agglomeration
+		
+	properties
+		numberMunicipalitiesCH
+		numberOtherMunicipalities
+		totalNumberMunicipalities
+		cHPopulationSize
+		otherPopulationSize
+}
